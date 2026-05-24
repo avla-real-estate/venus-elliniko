@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VENUS Athens Riviera · Drone Tour</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden}
+.wrap{position:fixed;inset:0;display:grid;place-items:center}
+video{width:100%;height:100%;object-fit:cover;background:#000}
+.bar{
+  position:fixed;top:0;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 28px;
+  z-index:10;
+  background:linear-gradient(180deg,rgba(0,0,0,.7),transparent);
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+}
+.bar a{color:#d9b78a;text-decoration:none;border:1px solid rgba(217,183,138,.45);padding:9px 18px;transition:all .25s}
+.bar a:hover{background:#d9b78a;color:#000;border-color:#d9b78a}
+.brand{font-family:Georgia,serif;letter-spacing:.18em}
+.bottom{
+  position:fixed;bottom:0;left:0;right:0;
+  padding:24px 28px;
+  background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);
+  z-index:10;
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;
+}
+.bottom .meta{font-size:11px;letter-spacing:.24em;text-transform:uppercase;opacity:.78}
+.bottom .ctas{display:flex;gap:12px}
+.bottom .ctas a{
+  background:#b8956a;color:#fff;text-decoration:none;
+  padding:14px 24px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+  transition:background .2s;
+}
+.bottom .ctas a:hover{background:#d9b78a}
+.bottom .ctas a.ghost{background:transparent;border:1px solid rgba(255,255,255,.4)}
+.bottom .ctas a.ghost:hover{background:rgba(255,255,255,.08)}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="brand">VENUS · Athens Riviera</span>
+  <a href="index.html">← Sayfaya Dön</a>
+</div>
+<div class="wrap">
+  <video autoplay controls playsinline preload="auto" poster="img/hero_poster.jpg">
+    <source src="video/hero_loop.mp4" type="video/mp4">
+    Tarayıcınız video oynatmayı desteklemiyor.
+  </video>
+</div>
+<div class="bottom">
+  <div class="meta">Afroditis 24 · Elliniko · Saroniks Körfezi · Drone</div>
+  <div class="ctas">
+    <a href="index.html#daireler">Daireleri Gör</a>
+    <a href="index.html#iletisim" class="ghost">Detaylı Bilgi</a>
+  </div>
+</div>
+</body>
+</html>
