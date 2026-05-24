@@ -2742,7 +2742,7 @@ function submitForm(e){
     }, 360);
   }
 
-  window.submitDrawer = function(e){
+  window.submitDrawer = async function(e){
     e.preventDefault();
     var f = e.target;
     var firstInvalid = null;
@@ -2751,7 +2751,6 @@ function submitForm(e){
     Array.from(f.querySelectorAll('input, select, textarea')).forEach(function(el){
       if(el.type === 'checkbox') return;
       if(!el.willValidate) return;
-      // required veya değer var ama type uyumsuz mu?
       var hasReq = el.hasAttribute('required');
       var hasVal = (el.value || '').trim().length > 0;
       if(!hasReq && !hasVal) { clearFieldError(el); return; }
@@ -2769,7 +2768,7 @@ function submitForm(e){
       showFieldError(phoneEl, 'Geçerli bir telefon numarası girin (örn. 532 282 26 57)');
       if(!firstInvalid) firstInvalid = phoneEl;
     }
-    // E-Posta — regex kontrolü (browser type=email zaten yakalar ama yine de)
+    // E-Posta — regex kontrolü
     var emailEl = f.querySelector('input[name="email"]');
     if(emailEl && emailEl.value && !isValidEmail(emailEl.value)){
       showFieldError(emailEl, 'Geçerli bir e-posta adresi girin (örn. ad@site.com).');
@@ -2791,34 +2790,94 @@ function submitForm(e){
       return false;
     }
 
-    // Tüm alanlar geçerli — WhatsApp mesajını oluştur
+    // Tüm alanlar geçerli — submit butonunu disable et
+    var btn = f.querySelector('button[type="submit"]') || f.querySelector('.drawer-submit');
+    var origLabel = '';
+    if(btn){ origLabel = btn.textContent; btn.disabled = true; btn.textContent = 'Gönderiliyor…'; }
+
+    // Form datasını topla
     var data = {};
     Array.from(f.elements).forEach(function(el){
       if(el.name && el.type !== 'checkbox') data[el.name] = (el.value || '').trim();
     });
-    var fullName = ((data.firstName||'') + ' ' + (data.lastName||'')).trim();
-    if(!fullName) fullName = (data.name || '-');
+
+    // "Ad Soyad" tek field → HubSpot firstname + lastname split
+    var nameParts = (data.firstName || '').split(/\s+/).filter(Boolean);
+    var hsFirstName = nameParts[0] || '';
+    var hsLastName = nameParts.slice(1).join(' ') || '—';
+
+    // HubSpot POST — Yunanistan formu (Sami/GV ile aynı: 6602f22f-…)
+    var portalId = '145141452';
+    var formGuid = '6602f22f-ef64-4465-a564-5f698bf7918d';
+    var hsUrl = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formGuid;
+    var hutk = (function(){ try { return (document.cookie.match(/hubspotutk=([^;]+)/)||[])[1] || ''; } catch(_) { return ''; } })();
+    var hsContext = { pageUri: window.location.href, pageName: document.title };
+    if (hutk) hsContext.hutk = hutk;
+
+    var hsBody = {
+      fields: [
+        { objectTypeId: '0-1', name: 'firstname', value: hsFirstName },
+        { objectTypeId: '0-1', name: 'lastname', value: hsLastName },
+        { objectTypeId: '0-1', name: 'email', value: data.email || '' },
+        { objectTypeId: '0-1', name: 'phone', value: data.phone || '' },
+        { objectTypeId: '0-1', name: 'gv_yatrm_butcesi_web', value: data.budget || 'Belirsiz' },
+        { objectTypeId: '0-1', name: 'gv_yatrm_zamanlamas_web', value: 'Belirtmedi (Venus formu)' },
+        { objectTypeId: '0-1', name: 'gv_kvkk_onay_web', value: 'true' }
+      ],
+      context: hsContext,
+      legalConsentOptions: {
+        consent: {
+          consentToProcess: true,
+          text: 'Avla Real Estate tarafından telefon, WhatsApp ve e-posta yoluyla iletişime geçilmesini kabul ediyorum. KVKK kapsamında tüm haklarım saklıdır.'
+        }
+      }
+    };
+
+    var hsOk = false;
+    try {
+      var res = await fetch(hsUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(hsBody)
+      });
+      hsOk = res.ok;
+      if(!hsOk){
+        var errTxt = await res.text();
+        console.warn('HubSpot submit non-OK:', res.status, errTxt.slice(0,300));
+      }
+    } catch(err) {
+      console.error('HubSpot submit failed:', err);
+    }
+
+    // Analytics events (sessiz, hata olsa bile çalışır)
+    try {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'form_submit', form_name: 'venus_drawer', page_project: 'venus_elliniko', hubspot_ok: hsOk });
+      if (typeof gtag === 'function') gtag('event', 'form_submit', { event_category:'conversion', event_label:'venus_drawer', hubspot_ok: hsOk });
+    } catch(_) {}
+    try { if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'Venus Drawer Form', currency: 'TRY', value: 1 }); } catch(_) {}
+
+    // WhatsApp linkini bonus olarak aç (HubSpot OK olsa da olmasa da — kullanıcı kaybı olmasın)
+    var fullName = (data.firstName||'').trim() || '-';
     var msg = "Merhaba, VENUS Athens Riviera için bilgi almak istiyorum.\n\n" +
               "👤 Ad Soyad: " + fullName + "\n" +
-              "🏙️ Şehir: " + (data.city || '-') + "\n" +
               "📞 Telefon: " + (data.phone || '-') + "\n" +
               "✉️ E-Posta: " + (data.email || '-') + "\n" +
-              "💰 Bütçe: " + (data.budget || '-') + "\n" +
-              "⏱️ Zaman: " + (data.timeline || '-') + "\n" +
-              (data.message ? "\n📝 Mesaj: " + data.message : "") +
-              "\n\n✅ KVKK Aydınlatma Metni okundu ve onaylandı.\n— Form üzerinden gönderildi (avlarealestate.com)";
+              "💰 Bütçe: " + (data.budget || '-') +
+              "\n\n✅ Form üzerinden gönderildi.";
     var phone = (window.VENUS_WHATSAPP || "905322822657");
-    var url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
-    if(window.__openExt){ window.__openExt(url); }
-    else { window.open(url, '_blank', 'noopener'); }
+    var waUrl = "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+    if(window.__openExt){ window.__openExt(waUrl); }
+    else { window.open(waUrl, '_blank', 'noopener'); }
+
     setTimeout(function(){
       f.reset();
-      // Hata stillerini de sıfırla
       Array.from(f.querySelectorAll('.field-wrap.has-error')).forEach(function(w){
         w.classList.remove('has-error');
         var s = w.querySelector('.field-err'); if(s) s.textContent = '';
       });
       if(consent) consent.classList.remove('has-error');
+      if(btn){ btn.disabled = false; btn.textContent = origLabel; }
       window.closeDrawer();
     }, 400);
     return false;
