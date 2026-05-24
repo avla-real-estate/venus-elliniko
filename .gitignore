@@ -20,3 +20,4 @@ VENUS_TEK_WIDGET.txt
 .env.*
 *.pem
 secrets.json
+.vercel
