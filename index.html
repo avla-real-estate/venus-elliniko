@@ -7,7 +7,27 @@
 <meta property="og:title" content="VENUS Athens Riviera · Afroditis 24, Elliniko">
 <meta property="og:description" content="Atina Riviera'da 58 lüks daire — sadece 2 mevcut. Avla Gayrimenkul'e özel kampanya: önemli indirimler, kira paketleri, %4 kira garantisi.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://venus-elliniko-athens-riviera.avlarealestate.com/">
+<meta property="og:image" content="https://venus-elliniko-athens-riviera.avlarealestate.com/venus-og-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://venus-elliniko-athens-riviera.avlarealestate.com/venus-og-1200x630.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VENUS Athens Riviera — Afroditis 24, Elliniko · Atina Golden Visa">
+<meta property="og:site_name" content="Avla Gayrimenkul">
+<meta property="og:locale" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VENUS Athens Riviera · Afroditis 24, Elliniko">
+<meta name="twitter:description" content="Atina Riviera'da 58 lüks daire — sadece 2 mevcut. Avla'ya özel kampanya: indirimler + %4 kira garantisi.">
+<meta name="twitter:image" content="https://venus-elliniko-athens-riviera.avlarealestate.com/venus-og-1200x630.jpg">
+<meta name="twitter:image:alt" content="VENUS Athens Riviera — Afroditis 24, Elliniko">
 <title>VENUS Athens Riviera · Afroditis 24, Elliniko · Avla Gayrimenkul</title>
+
+<!-- Favicon — Avla kuş ikonu -->
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./img/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+<link rel="shortcut icon" href="./img/favicon-32.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1986,6 +2006,7 @@ document.addEventListener('click', function(e){
             <th>İç Alan</th>
             <th>Balkon / Teras</th>
             <th>Toplam</th>
+            <th style="text-align:right">Fiyat</th>
             <th style="text-align:right">Durum</th>
           </tr>
         </thead>
@@ -2315,71 +2336,71 @@ document.addEventListener('click', function(e){
   //    status: "available" | "reserved" | "sold"
   //    poolView: havuz manzaralı dairelere true (rozet otomatik gösterilir)
   window.VENUS_APARTMENTS = [
-    // ZEMİN KAT (4 stüdyo — bahçe + playroom)
-    { id: "GF.1", type: "Stüdyo", floor: "Zemin",  internal: 42,    balcony: "10,5 m² + Playroom 20,5 m²", total: 73,   poolView:false, status:"reserved"  },
-    { id: "GF.2", type: "Stüdyo", floor: "Zemin",  internal: 39.7,  balcony: "10,5 m² + Playroom 19 m²",   total: 69.2, poolView:false, status:"reserved"  },
-    { id: "GF.3", type: "Stüdyo", floor: "Zemin",  internal: 39.7,  balcony: "11 m² + Playroom 19 m²",     total: 69.7, poolView:false, status:"reserved"  },
-    { id: "GF.4", type: "Stüdyo", floor: "Zemin",  internal: 39.9,  balcony: "11 m² + Playroom 19 m²",     total: 69.9, poolView:false, status:"sold"      },
+    // ZEMİN KAT (4 stüdyo — bahçe + playroom) — kaynak: PDF Haziran 2026
+    { id: "GF.1", type: "Stüdyo", floor: "Zemin",  internal: 42,    balcony: "10,5 m² + Playroom 20,5 m²", total: 73,   poolView:false, price: 357000, status:"available" },
+    { id: "GF.2", type: "Stüdyo", floor: "Zemin",  internal: 39.7,  balcony: "10,5 m² + Playroom 19 m²",   total: 69.2, poolView:false, price: 337000, status:"available" },
+    { id: "GF.3", type: "Stüdyo", floor: "Zemin",  internal: 39.7,  balcony: "11 m² + Playroom 19 m²",     total: 69.7, poolView:false, price: 337000, status:"available" },
+    { id: "GF.4", type: "Stüdyo", floor: "Zemin",  internal: 39.9,  balcony: "11 m² + Playroom 19 m²",     total: 69.9, poolView:false, price: null,   status:"sold"      },
 
     // 1. KAT (18 daire)
-    { id: "1.1",  type: "1+1",    floor: "1. Kat", internal: 36.6,  balcony: "11,5 m²", total: 48.1, poolView:false, status:"reserved"  },
-    { id: "1.2",  type: "1+1",    floor: "1. Kat", internal: 36.7,  balcony: "12,5 m²", total: 49.2, poolView:false, status:"reserved"  },
-    { id: "1.3",  type: "1+1",    floor: "1. Kat", internal: 34.8,  balcony: "8,5 m²",  total: 43.3, poolView:false, status:"sold"      },
-    { id: "1.4",  type: "1+1",    floor: "1. Kat", internal: 35.2,  balcony: "6,5 m²",  total: 41.7, poolView:false, status:"reserved"  },
-    { id: "1.5",  type: "1+1",    floor: "1. Kat", internal: 35.1,  balcony: "7 m²",    total: 42.1, poolView:false, status:"sold"      },
-    { id: "1.6",  type: "2+1",    floor: "1. Kat", internal: 50.3,  balcony: "32 m²",   total: 82.3, poolView:false, status:"reserved"  },
-    { id: "1.7",  type: "Stüdyo", floor: "1. Kat", internal: 33.6,  balcony: "13 m²",   total: 46.6, poolView:false, status:"sold"      },
-    { id: "1.8",  type: "Stüdyo", floor: "1. Kat", internal: 34.6,  balcony: "18,5 m²", total: 53.1, poolView:false, status:"reserved"  },
-    { id: "1.9",  type: "1+1",    floor: "1. Kat", internal: 35.2,  balcony: "4,5 m²",  total: 39.7, poolView:false, status:"reserved"  },
-    { id: "1.10", type: "1+1",    floor: "1. Kat", internal: 38.1,  balcony: "6 m²",    total: 44.1, poolView:false, status:"reserved"  },
-    { id: "1.11", type: "1+1",    floor: "1. Kat", internal: 37.6,  balcony: "9 m²",    total: 46.6, poolView:true,  status:"sold"      },
-    { id: "1.12", type: "1+1",    floor: "1. Kat", internal: 36.5,  balcony: "9,5 m²",  total: 46,   poolView:true,  status:"sold"      },
-    { id: "1.13", type: "1+1",    floor: "1. Kat", internal: 34.2,  balcony: "42 m²",   total: 76.2, poolView:true,  status:"sold"      },
-    { id: "1.14", type: "1+1",    floor: "1. Kat", internal: 35.3,  balcony: "9,5 m²",  total: 44.8, poolView:false, status:"reserved"  },
-    { id: "1.15", type: "1+1",    floor: "1. Kat", internal: 34.1,  balcony: "6,5 m²",  total: 40.6, poolView:false, status:"reserved"  },
-    { id: "1.16", type: "1+1",    floor: "1. Kat", internal: 34.3,  balcony: "3,6 m²",  total: 37.9, poolView:false, status:"reserved"  },
-    { id: "1.17", type: "1+1",    floor: "1. Kat", internal: 36.3,  balcony: "3,7 m²",  total: 40,   poolView:false, status:"reserved"  },
-    { id: "1.18", type: "Stüdyo", floor: "1. Kat", internal: 31.6,  balcony: "3,8 m²",  total: 35.4, poolView:false, status:"sold"      },
+    { id: "1.1",  type: "1+1",    floor: "1. Kat", internal: 36.6,  balcony: "11,5 m²", total: 48.1, poolView:false, price: 315000, status:"available" },
+    { id: "1.2",  type: "1+1",    floor: "1. Kat", internal: 36.7,  balcony: "12,5 m²", total: 49.2, poolView:false, price: 317000, status:"available" },
+    { id: "1.3",  type: "1+1",    floor: "1. Kat", internal: 34.8,  balcony: "8,5 m²",  total: 43.3, poolView:false, price: 299000, status:"available" },
+    { id: "1.4",  type: "1+1",    floor: "1. Kat", internal: 35.2,  balcony: "6,5 m²",  total: 41.7, poolView:false, price: null,   status:"sold"      },
+    { id: "1.5",  type: "1+1",    floor: "1. Kat", internal: 35.1,  balcony: "7 m²",    total: 42.1, poolView:false, price: null,   status:"sold"      },
+    { id: "1.6",  type: "2+1",    floor: "1. Kat", internal: 50.3,  balcony: "32 m²",   total: 82.3, poolView:false, price: null,   status:"sold"      },
+    { id: "1.7",  type: "Stüdyo", floor: "1. Kat", internal: 33.6,  balcony: "13 m²",   total: 46.6, poolView:false, price: null,   status:"sold"      },
+    { id: "1.8",  type: "Stüdyo", floor: "1. Kat", internal: 34.6,  balcony: "18,5 m²", total: 53.1, poolView:false, price: 297000, status:"available" },
+    { id: "1.9",  type: "1+1",    floor: "1. Kat", internal: 35.2,  balcony: "4,5 m²",  total: 39.7, poolView:false, price: 299000, status:"reserved"  },
+    { id: "1.10", type: "1+1",    floor: "1. Kat", internal: 38.1,  balcony: "6 m²",    total: 44.1, poolView:false, price: null,   status:"sold"      },
+    { id: "1.11", type: "1+1",    floor: "1. Kat", internal: 37.6,  balcony: "9 m²",    total: 46.6, poolView:true,  price: null,   status:"sold"      },
+    { id: "1.12", type: "1+1",    floor: "1. Kat", internal: 36.5,  balcony: "9,5 m²",  total: 46,   poolView:true,  price: null,   status:"sold"      },
+    { id: "1.13", type: "1+1",    floor: "1. Kat", internal: 34.2,  balcony: "42 m²",   total: 76.2, poolView:true,  price: null,   status:"sold"      },
+    { id: "1.14", type: "1+1",    floor: "1. Kat", internal: 35.3,  balcony: "9,5 m²",  total: 44.8, poolView:false, price: null,   status:"sold"      },
+    { id: "1.15", type: "1+1",    floor: "1. Kat", internal: 34.1,  balcony: "6,5 m²",  total: 40.6, poolView:false, price: 295000, status:"reserved"  },
+    { id: "1.16", type: "1+1",    floor: "1. Kat", internal: 34.3,  balcony: "3,6 m²",  total: 37.9, poolView:false, price: 294000, status:"reserved"  },
+    { id: "1.17", type: "1+1",    floor: "1. Kat", internal: 36.3,  balcony: "3,7 m²",  total: 40,   poolView:false, price: null,   status:"sold"      },
+    { id: "1.18", type: "Stüdyo", floor: "1. Kat", internal: 31.6,  balcony: "3,8 m²",  total: 35.4, poolView:false, price: null,   status:"sold"      },
 
-    // 2. KAT (18 daire — TÜMÜ REZERVE)
-    { id: "2.1",  type: "1+1",    floor: "2. Kat", internal: 37,    balcony: "4 m²",    total: 41,   poolView:false, status:"reserved" },
-    { id: "2.2",  type: "1+1",    floor: "2. Kat", internal: 37.1,  balcony: "4 m²",    total: 41.1, poolView:false, status:"reserved" },
-    { id: "2.3",  type: "1+1",    floor: "2. Kat", internal: 36.1,  balcony: "5 m²",    total: 41.1, poolView:false, status:"reserved" },
-    { id: "2.4",  type: "1+1",    floor: "2. Kat", internal: 35.2,  balcony: "6,5 m²",  total: 41.7, poolView:false, status:"reserved" },
-    { id: "2.5",  type: "1+1",    floor: "2. Kat", internal: 35.1,  balcony: "7 m²",    total: 42.1, poolView:false, status:"reserved" },
-    { id: "2.6",  type: "2+1",    floor: "2. Kat", internal: 50.3,  balcony: "6,5 m²",  total: 56.8, poolView:false, status:"reserved" },
-    { id: "2.7",  type: "Stüdyo", floor: "2. Kat", internal: 33.6,  balcony: "3,8 m²",  total: 37.4, poolView:false, status:"reserved" },
-    { id: "2.8",  type: "Stüdyo", floor: "2. Kat", internal: 34.6,  balcony: "3,8 m²",  total: 38.4, poolView:false, status:"reserved" },
-    { id: "2.9",  type: "1+1",    floor: "2. Kat", internal: 35.2,  balcony: "4,5 m²",  total: 39.7, poolView:false, status:"reserved" },
-    { id: "2.10", type: "1+1",    floor: "2. Kat", internal: 35.9,  balcony: "6 m²",    total: 41.9, poolView:false, status:"reserved" },
-    { id: "2.11", type: "1+1",    floor: "2. Kat", internal: 31.6,  balcony: "6,5 m²",  total: 38.1, poolView:true,  status:"reserved" },
-    { id: "2.12", type: "1+1",    floor: "2. Kat", internal: 31.7,  balcony: "6,5 m²",  total: 38.2, poolView:true,  status:"reserved" },
-    { id: "2.13", type: "1+1",    floor: "2. Kat", internal: 31.4,  balcony: "6,5 m²",  total: 37.9, poolView:true,  status:"reserved" },
-    { id: "2.14", type: "1+1",    floor: "2. Kat", internal: 33,    balcony: "6,5 m²",  total: 39.5, poolView:false, status:"reserved" },
-    { id: "2.15", type: "1+1",    floor: "2. Kat", internal: 33.5,  balcony: "3,8 m²",  total: 37.3, poolView:false, status:"reserved" },
-    { id: "2.16", type: "1+1",    floor: "2. Kat", internal: 34.3,  balcony: "3,6 m²",  total: 37.9, poolView:false, status:"reserved" },
-    { id: "2.17", type: "1+1",    floor: "2. Kat", internal: 36.3,  balcony: "3,7 m²",  total: 40,   poolView:false, status:"reserved" },
-    { id: "2.18", type: "Stüdyo", floor: "2. Kat", internal: 31.6,  balcony: "3,8 m²",  total: 35.4, poolView:false, status:"reserved" },
+    // 2. KAT (18 daire — TÜMÜ REZERVE, fiyat listede yer almıyor)
+    { id: "2.1",  type: "1+1",    floor: "2. Kat", internal: 37,    balcony: "4 m²",    total: 41,   poolView:false, price: null, status:"reserved" },
+    { id: "2.2",  type: "1+1",    floor: "2. Kat", internal: 37.1,  balcony: "4 m²",    total: 41.1, poolView:false, price: null, status:"reserved" },
+    { id: "2.3",  type: "1+1",    floor: "2. Kat", internal: 36.1,  balcony: "5 m²",    total: 41.1, poolView:false, price: null, status:"reserved" },
+    { id: "2.4",  type: "1+1",    floor: "2. Kat", internal: 35.2,  balcony: "6,5 m²",  total: 41.7, poolView:false, price: null, status:"reserved" },
+    { id: "2.5",  type: "1+1",    floor: "2. Kat", internal: 35.1,  balcony: "7 m²",    total: 42.1, poolView:false, price: null, status:"reserved" },
+    { id: "2.6",  type: "2+1",    floor: "2. Kat", internal: 50.3,  balcony: "6,5 m²",  total: 56.8, poolView:false, price: null, status:"reserved" },
+    { id: "2.7",  type: "Stüdyo", floor: "2. Kat", internal: 33.6,  balcony: "3,8 m²",  total: 37.4, poolView:false, price: null, status:"reserved" },
+    { id: "2.8",  type: "Stüdyo", floor: "2. Kat", internal: 34.6,  balcony: "3,8 m²",  total: 38.4, poolView:false, price: null, status:"reserved" },
+    { id: "2.9",  type: "1+1",    floor: "2. Kat", internal: 35.2,  balcony: "4,5 m²",  total: 39.7, poolView:false, price: null, status:"reserved" },
+    { id: "2.10", type: "1+1",    floor: "2. Kat", internal: 35.9,  balcony: "6 m²",    total: 41.9, poolView:false, price: null, status:"reserved" },
+    { id: "2.11", type: "1+1",    floor: "2. Kat", internal: 31.6,  balcony: "6,5 m²",  total: 38.1, poolView:true,  price: null, status:"reserved" },
+    { id: "2.12", type: "1+1",    floor: "2. Kat", internal: 31.7,  balcony: "6,5 m²",  total: 38.2, poolView:true,  price: null, status:"reserved" },
+    { id: "2.13", type: "1+1",    floor: "2. Kat", internal: 31.4,  balcony: "6,5 m²",  total: 37.9, poolView:true,  price: null, status:"reserved" },
+    { id: "2.14", type: "1+1",    floor: "2. Kat", internal: 33,    balcony: "6,5 m²",  total: 39.5, poolView:false, price: null, status:"reserved" },
+    { id: "2.15", type: "1+1",    floor: "2. Kat", internal: 33.5,  balcony: "3,8 m²",  total: 37.3, poolView:false, price: null, status:"reserved" },
+    { id: "2.16", type: "1+1",    floor: "2. Kat", internal: 34.3,  balcony: "3,6 m²",  total: 37.9, poolView:false, price: null, status:"reserved" },
+    { id: "2.17", type: "1+1",    floor: "2. Kat", internal: 36.3,  balcony: "3,7 m²",  total: 40,   poolView:false, price: null, status:"reserved" },
+    { id: "2.18", type: "Stüdyo", floor: "2. Kat", internal: 31.6,  balcony: "3,8 m²",  total: 35.4, poolView:false, price: null, status:"reserved" },
 
     // 3. KAT (18 daire)
-    { id: "3.1",  type: "1+1",    floor: "3. Kat", internal: 37.7,  balcony: "2,8 m²",  total: 40.5, poolView:false, status:"available" },
-    { id: "3.2",  type: "1+1",    floor: "3. Kat", internal: 37.9,  balcony: "4 m²",    total: 41.9, poolView:false, status:"sold"      },
-    { id: "3.3",  type: "1+1",    floor: "3. Kat", internal: 36.1,  balcony: "5 m²",    total: 41.1, poolView:false, status:"reserved"  },
-    { id: "3.4",  type: "1+1",    floor: "3. Kat", internal: 35.2,  balcony: "6,5 m²",  total: 41.7, poolView:false, status:"reserved"  },
-    { id: "3.5",  type: "1+1",    floor: "3. Kat", internal: 35.1,  balcony: "7 m²",    total: 42.1, poolView:false, status:"sold"      },
-    { id: "3.6",  type: "2+1",    floor: "3. Kat", internal: 50.3,  balcony: "6,5 m²",  total: 56.8, poolView:false, status:"available" },
-    { id: "3.7",  type: "Stüdyo", floor: "3. Kat", internal: 33.6,  balcony: "3,8 m²",  total: 37.4, poolView:false, status:"reserved"  },
-    { id: "3.8",  type: "Stüdyo", floor: "3. Kat", internal: 34.6,  balcony: "3,8 m²",  total: 38.4, poolView:false, status:"reserved"  },
-    { id: "3.9",  type: "1+1",    floor: "3. Kat", internal: 35.2,  balcony: "4,5 m²",  total: 39.7, poolView:false, status:"reserved"  },
-    { id: "3.10", type: "1+1",    floor: "3. Kat", internal: 35.9,  balcony: "6 m²",    total: 41.9, poolView:false, status:"sold"      },
-    { id: "3.11", type: "1+1",    floor: "3. Kat", internal: 31.6,  balcony: "6,5 m²",  total: 38.1, poolView:true,  status:"sold"      },
-    { id: "3.12", type: "1+1",    floor: "3. Kat", internal: 31.7,  balcony: "6,5 m²",  total: 38.2, poolView:true,  status:"sold"      },
-    { id: "3.13", type: "1+1",    floor: "3. Kat", internal: 31.4,  balcony: "6,5 m²",  total: 37.9, poolView:true,  status:"sold"      },
-    { id: "3.14", type: "1+1",    floor: "3. Kat", internal: 33,    balcony: "6,5 m²",  total: 39.5, poolView:false, status:"reserved"  },
-    { id: "3.15", type: "1+1",    floor: "3. Kat", internal: 33.5,  balcony: "3,8 m²",  total: 37.3, poolView:false, status:"sold"      },
-    { id: "3.16", type: "1+1",    floor: "3. Kat", internal: 34.3,  balcony: "3,6 m²",  total: 37.9, poolView:false, status:"reserved"  },
-    { id: "3.17", type: "1+1",    floor: "3. Kat", internal: 36.3,  balcony: "3,7 m²",  total: 40,   poolView:false, status:"reserved"  },
-    { id: "3.18", type: "Stüdyo", floor: "3. Kat", internal: 31.6,  balcony: "3,8 m²",  total: 35.4, poolView:false, status:"sold"      }
+    { id: "3.1",  type: "1+1",    floor: "3. Kat", internal: 37.7,  balcony: "2,8 m²",  total: 40.5, poolView:false, price: 333000, status:"reserved" },
+    { id: "3.2",  type: "1+1",    floor: "3. Kat", internal: 37.9,  balcony: "4 m²",    total: 41.9, poolView:false, price: null,   status:"sold"     },
+    { id: "3.3",  type: "1+1",    floor: "3. Kat", internal: 36.1,  balcony: "5 m²",    total: 41.1, poolView:false, price: 318000, status:"reserved" },
+    { id: "3.4",  type: "1+1",    floor: "3. Kat", internal: 35.2,  balcony: "6,5 m²",  total: 41.7, poolView:false, price: null,   status:"sold"     },
+    { id: "3.5",  type: "1+1",    floor: "3. Kat", internal: 35.1,  balcony: "7 m²",    total: 42.1, poolView:false, price: null,   status:"sold"     },
+    { id: "3.6",  type: "2+1",    floor: "3. Kat", internal: 50.3,  balcony: "6,5 m²",  total: 56.8, poolView:false, price: 430000, status:"reserved" },
+    { id: "3.7",  type: "Stüdyo", floor: "3. Kat", internal: 33.6,  balcony: "3,8 m²",  total: 37.4, poolView:false, price: null,   status:"sold"     },
+    { id: "3.8",  type: "Stüdyo", floor: "3. Kat", internal: 34.6,  balcony: "3,8 m²",  total: 38.4, poolView:false, price: 305000, status:"reserved" },
+    { id: "3.9",  type: "1+1",    floor: "3. Kat", internal: 35.2,  balcony: "4,5 m²",  total: 39.7, poolView:false, price: 310000, status:"reserved" },
+    { id: "3.10", type: "1+1",    floor: "3. Kat", internal: 35.9,  balcony: "6 m²",    total: 41.9, poolView:false, price: null,   status:"sold"     },
+    { id: "3.11", type: "1+1",    floor: "3. Kat", internal: 31.6,  balcony: "6,5 m²",  total: 38.1, poolView:true,  price: null,   status:"sold"     },
+    { id: "3.12", type: "1+1",    floor: "3. Kat", internal: 31.7,  balcony: "6,5 m²",  total: 38.2, poolView:true,  price: null,   status:"sold"     },
+    { id: "3.13", type: "1+1",    floor: "3. Kat", internal: 31.4,  balcony: "6,5 m²",  total: 37.9, poolView:true,  price: null,   status:"sold"     },
+    { id: "3.14", type: "1+1",    floor: "3. Kat", internal: 33,    balcony: "6,5 m²",  total: 39.5, poolView:false, price: 290000, status:"reserved" },
+    { id: "3.15", type: "1+1",    floor: "3. Kat", internal: 33.5,  balcony: "3,8 m²",  total: 37.3, poolView:false, price: null,   status:"sold"     },
+    { id: "3.16", type: "1+1",    floor: "3. Kat", internal: 34.3,  balcony: "3,6 m²",  total: 37.9, poolView:false, price: 299000, status:"reserved" },
+    { id: "3.17", type: "1+1",    floor: "3. Kat", internal: 36.3,  balcony: "3,7 m²",  total: 40,   poolView:false, price: 319000, status:"reserved" },
+    { id: "3.18", type: "Stüdyo", floor: "3. Kat", internal: 31.6,  balcony: "3,8 m²",  total: 35.4, poolView:false, price: null,   status:"sold"     }
   ];
 </script>
 
@@ -2430,6 +2451,12 @@ function renderInventory(){
   body.innerHTML = filtered.map(a => {
     const s = STATUS_MAP[a.status] || STATUS_MAP.available;
     const pool = a.poolView ? `<div class="pool-tag">Havuz Manzarası</div>` : "";
+    const priceTxt = (typeof a.price === "number" && a.price > 0)
+      ? "€" + a.price.toLocaleString("tr-TR")
+      : "—";
+    const priceStyle = a.status === "sold"
+      ? "text-align:right;font-family:var(--serif);font-size:16px;color:#999;text-decoration:line-through;white-space:nowrap"
+      : "text-align:right;font-family:var(--serif);font-size:16px;color:var(--gold);font-weight:500;white-space:nowrap";
     return `<tr>
       <td class="id">${a.id}${pool}</td>
       <td>${a.type}</td>
@@ -2437,6 +2464,7 @@ function renderInventory(){
       <td>${fmt(a.internal)} m²</td>
       <td>${a.balcony}</td>
       <td>${fmt(a.total)} m²</td>
+      <td style="${priceStyle}">${priceTxt}</td>
       <td style="text-align:right"><span class="pill ${s.pill}">${s.label}</span></td>
     </tr>`;
   }).join("");
