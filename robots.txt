@@ -1,0 +1,60 @@
+# Avla Gayrimenkul A.Ş — venus-elliniko-athens-riviera.avlarealestate.com
+# Olusturma: 2026-08-29 (SEO/GEO gunluk kontrol — robots.txt hic yoktu, 404 donuyordu)
+
+User-agent: *
+Allow: /
+# Brosur ve form PDF'leri arama motoru indeksine girmez
+# (konum gizleme doktrini + gelistirici adi gizleme kurali)
+Disallow: /brochures/
+Disallow: /formlar/
+
+# === AI Crawler'lari acikca izinli (ana site ile ayni politika) ===
+User-agent: GPTBot
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /brochures/
+Disallow: /formlar/
+
+# === Spam / istenmeyen botlar ===
+User-agent: PetalBot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+# === Sitemap ===
+Sitemap: https://venus-elliniko-athens-riviera.avlarealestate.com/sitemap.xml
